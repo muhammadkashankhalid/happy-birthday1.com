@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Special Surprise</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+     html { scroll-behavior: smooth; }
+    body {
+      margin: 0; padding-top: 80px;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+      overflow-x: hidden;
+      display: flex; flex-direction: column; align-items: center;
+      min-height: 100vh;
+    }
+    @media (min-width: 768px) {
+      body { padding-top: 100px; }
+    }
+
+
+      .card {
+        background-color: #fffffff5;
+      /* background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); */
+      /* background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%); */
+
+    /* background: linear-gradient(45deg, #ff4757, #ff6348); */
+
+        padding: 3rem 4rem;
+        border-radius: 15px;
+        /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
+    /* box-shadow: 0 4px 15px rgba(255, 82, 82, 0.5); */
+      box-shadow: 0 10px 20px rgba(0,0,0,.15);
+
+
+        text-align: center;
+        position: relative;
+        transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+      }
+
+      #title {
+        font-size: 2.2rem;
+        font-weight: 300;
+        color: #7f8c8d;
+        margin-bottom: 2rem;
+        transition: opacity 0.5s ease-out;
+         /* display: inline-block; */
+      padding: 1rem 2.5rem;
+      background: linear-gradient(to right, #8b5cf6, #ec4899);
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 600;
+      border-radius: 9999px;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(139,92,246,0.15);
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      }
+
+      #carrot {
+        width: 150px;
+        height: auto;
+        cursor: pointer;
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        user-select: none;
+      }
+
+      #carrot:hover {
+        transform: scale(1.08) rotate(-5deg);
+      }
+
+      .rabbit-container {
+        position: absolute;
+        bottom: 15vh;
+        left: -200px; /* Start position off-screen */
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #rabbit {
+        width: 180px;
+        height: auto;
+        transform: scaleX(-1); /* Initially facing right */
+      }
+
+      #message {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #e67e22;
+        background-color: #fff;
+        padding: 10px 20px;
+        border-radius: 50px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        margin-top: 15px;
+        white-space: nowrap;
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+      }
+
+      /* Keyframe animations for a smooth, professional feel */
+      @keyframes appearAndRun {
+        0% {
+          transform: translateX(0);
+          opacity: 0;
+        }
+        30% {
+          opacity: 1;
+          transform: translateX(350px) scaleX(1); /* Arrive at the center */
+        }
+        40% {
+          transform: translateX(350px) scaleX(1) translateY(-10px); /* Small hop */
+        }
+        50% {
+          transform: translateX(350px) scaleX(1) translateY(0);
+        }
+        60% {
+          transform: translateX(350px) scaleX(-1); /* Turn to run away */
+        }
+        100% {
+          transform: translateX(calc(100vw + 200px)) scaleX(-1); /* Run off-screen */
+          opacity: 1;
+        }
+      }
+
+      /* Classes to control the animations */
+      .show-rabbit {
+        animation: appearAndRun 3s forwards cubic-bezier(0.42, 0, 0.58, 1);
+      }
+
+      .fade-out {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      .div12345{
+        text-align: center;
+        margin-top: 2rem;
+        display: flex;
+        text-decoration: none;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
+        /* background-color: ; */
+        background: conic-gradient(
+        from 0deg,
+        #ff4757,
+        #ff6348,
+        #ff9f43,
+        #ff6b81,
+        #ff4757
+      );
+      /* background-color: linear-gradient(to right, #8b5cf6, #ec4899); */
+      /* color: #fff; */
+      font-size: 1.25rem;
+      font-weight: 600;
+      border-radius: 9999px;
+      /* text-decoration: none; */
+      /* box-shadow: 0 4px 16px rgba(139,92,246,0.15); */
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      width: 200px;
+      transition: scale 300ms ease-in-out;
+      padding: 20px 30px;
+      }
+      .div12345:hover{
+       scale: 1.1;
+
+      }
+      .div12345 a{
+        text-decoration: none;
+        color: linear-gradient(to right, #8b5cf6, #ec4899);
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: 600;
+        font-size: larger;
+
+        
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+    <div class="card">
+      <h1 id="title">Click the Carrot!</h1>
+      <img src="https://www.bing.com/th/id/OIP.zmkYjsXHpjpYjEBnHB_cDwHaMm?w=168&h=211&c=8&rs=1&qlt=70&o=7&cb=thws5&dpr=1.3&pid=3.1&rm=3" alt="A vibrant carrot" id="carrot" />
+    </div>
+
+    <div class="rabbit-container">
+      <img src="./images-removebg-preview.png" alt="A cute rabbit" id="rabbit" />
+      <span id="message">Happy birthday dear best friend! ❤️</span>
+    </div>
+
+
+
+    
+</section>
+<div class="div12345">
+      <a href="./index.html">⬅️Go Back</a>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const carrot = document.getElementById('carrot');
+    const title = document.getElementById('title');
+    const card = document.querySelector('.card');
+    const rabbitContainer = document.querySelector('.rabbit-container');
+    const message = document.getElementById('message');
+
+    const handleCarrotClick = async () => {
+        // Step 1: Fade out the card smoothly
+        card.classList.add('fade-out');
+
+        // Wait for the fade-out to complete
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        // Hide the card
+        card.style.display = 'none';
+
+        // Step 2: Show the rabbit and trigger its animation
+        rabbitContainer.style.opacity = 1;
+        rabbitContainer.classList.add('show-rabbit');
+
+        // Step 3: Wait for the rabbit to reach the center, then show the message
+        await new Promise(resolve => setTimeout(resolve, 1200));
+        message.style.opacity = 1;
+    };
+
+    carrot.addEventListener('click', handleCarrotClick);
+});
+    </script>
+  </body>
+</html>
